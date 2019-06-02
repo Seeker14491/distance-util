@@ -2,7 +2,7 @@
 
 Misc. utility functions relating to the game [Distance](http://survivethedistance.com/).
 
-### [Docs](https://seeker14491.github.io/distance-util/distance-util)
+### [Docs](https://seeker14491.github.io/distance-util/distance_util)
 
 ## License
 
