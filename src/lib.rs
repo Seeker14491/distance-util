@@ -3,6 +3,7 @@ pub extern crate enumflags2;
 use enumflags2::BitFlags;
 use enumflags2_derive::EnumFlags;
 use num_integer::Integer;
+use std::fmt::{self, Display};
 use thousands::Separable;
 
 mod official_level_names;
@@ -15,6 +16,14 @@ pub enum LeaderboardGameMode {
 }
 
 impl LeaderboardGameMode {
+    pub fn name(self) -> &'static str {
+        match self {
+            LeaderboardGameMode::Sprint => "Sprint",
+            LeaderboardGameMode::Stunt => "Stunt",
+            LeaderboardGameMode::Challenge => "Challenge",
+        }
+    }
+
     pub fn official_levels(self) -> &'static [&'static str] {
         match self {
             LeaderboardGameMode::Sprint => official_level_names::SPRINT,
@@ -28,6 +37,12 @@ impl LeaderboardGameMode {
         self.official_levels()
             .iter()
             .map(move |x| create_leaderboard_name_string(*x, self, None).unwrap())
+    }
+}
+
+impl Display for LeaderboardGameMode {
+    fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
+        f.write_str(self.name())
     }
 }
 
