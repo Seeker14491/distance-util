@@ -1,5 +1,8 @@
 pub extern crate enumflags2;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 use enumflags2::BitFlags;
 use enumflags2_derive::EnumFlags;
 use num_integer::Integer;
@@ -9,6 +12,7 @@ use thousands::Separable;
 mod official_level_names;
 
 #[derive(EnumFlags, Debug, Copy, Clone, Hash, Eq, PartialEq, Ord, PartialOrd)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum LeaderboardGameMode {
     Sprint = 1,
     Stunt = 2,
