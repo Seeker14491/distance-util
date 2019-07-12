@@ -45,20 +45,21 @@ pub fn official_level_leaderboard_names(
 /// Creates a level's leaderboard name string, which is needed to get a level's leaderboard
 /// from the Steamworks API.
 ///
-/// `filename` is the level's filename, and can include or omit the `.bytes` extension.
-/// `steam_id_owner` must be set for workshop levels, and unset for official levels.
+/// For official levels, `level` is the level's name. For workshop levels, `level` is the level's
+/// filename without the `.bytes` extension (which can be different from the actual level name).
+/// `steam_id_owner` must be given for workshop levels, and `None` for official levels.
 ///
 /// Levels with very long filenames do not have a valid leaderboard name string, and so this
 /// function returns `None` in that case.
 pub fn create_leaderboard_name_string(
-    filename: &str,
+    level: &str,
     game_mode: LeaderboardGameMode,
     steam_id_owner: Option<u64>,
 ) -> Option<String> {
     let s = if let Some(id) = steam_id_owner {
-        format!("{}_{}_{}_stable", filename, game_mode as u8, id)
+        format!("{}_{}_{}_stable", level, game_mode as u8, id)
     } else {
-        format!("{}_{}_stable", filename, game_mode as u8)
+        format!("{}_{}_stable", level, game_mode as u8)
     };
 
     if s.len() <= 128 {
