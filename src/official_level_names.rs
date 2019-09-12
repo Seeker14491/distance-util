@@ -118,6 +118,7 @@ pub const SPRINT: &[&str] = &[
     "White",
     "Wired",
     "Yellow",
+    "Zenith",
 ];
 
 pub const STUNT: &[&str] = &[
