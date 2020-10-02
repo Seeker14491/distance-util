@@ -32,8 +32,11 @@ impl Error for NegativeScoreError {}
 /// ```
 /// use distance_util::LeaderboardGameMode;
 ///
-/// let sprint_time = distance_util::format_score(17767890, LeaderboardGameMode::Sprint).unwrap();
-/// assert_eq!(sprint_time, "04:56:07.89");
+/// let sprint_time = distance_util::format_score(83450, LeaderboardGameMode::Sprint).unwrap();
+/// assert_eq!(sprint_time, "01:23.45");
+///
+/// let long_sprint_time = distance_util::format_score(17767890, LeaderboardGameMode::Sprint).unwrap();
+/// assert_eq!(long_sprint_time, "04:56:07.89");
 ///
 /// let stunt_time = distance_util::format_score(123_456, LeaderboardGameMode::Stunt).unwrap();
 /// assert_eq!(stunt_time, "123,456 eV");
@@ -63,10 +66,14 @@ fn format_score_as_time(score: i32) -> String {
     let (seconds, rem) = div_rem(rem, 1000);
     let centiseconds = rem / 10;
 
-    format!(
-        "{:02}:{:02}:{:02}.{:02}",
-        hours, minutes, seconds, centiseconds
-    )
+    if hours > 0 {
+        format!(
+            "{:02}:{:02}:{:02}.{:02}",
+            hours, minutes, seconds, centiseconds
+        )
+    } else {
+        format!("{:02}:{:02}.{:02}", minutes, seconds, centiseconds)
+    }
 }
 
 // Simultaneous truncated integer division and modulus.
