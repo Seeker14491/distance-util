@@ -8,9 +8,7 @@
     deprecated_in_future,
     macro_use_extern_crate,
     missing_debug_implementations,
-    unused_labels,
-    unused_qualifications,
-    clippy::cast_possible_truncation
+    unused_qualifications
 )]
 
 mod format_score;
