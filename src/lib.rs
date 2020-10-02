@@ -57,7 +57,7 @@ impl LeaderboardGameMode {
     }
 
     /// Equivalent to calling [`official_level_leaderboard_names()`] with `self`.
-    pub fn official_level_leaderboard_names(self) -> impl Iterator<Item = String> {
+    pub fn official_level_leaderboard_names(self) -> impl Iterator<Item = String> + Send {
         official_level_leaderboard_names(self)
     }
 }
@@ -98,7 +98,9 @@ pub fn official_level_names(mode: LeaderboardGameMode) -> &'static [&'static str
 /// let mut names = distance_util::official_level_leaderboard_names(LeaderboardGameMode::Sprint);
 /// assert_eq!(names.next().unwrap(), "Broken Symmetry_1_stable");
 /// ```
-pub fn official_level_leaderboard_names(mode: LeaderboardGameMode) -> impl Iterator<Item = String> {
+pub fn official_level_leaderboard_names(
+    mode: LeaderboardGameMode,
+) -> impl Iterator<Item = String> + Send {
     official_level_names(mode)
         .iter()
         .map(move |name| create_leaderboard_name_string(*name, mode, None).unwrap())
