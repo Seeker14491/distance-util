@@ -72,7 +72,7 @@ fn div_rem(x: i32, other: i32) -> (i32, i32) {
 }
 
 /// The error returned when a negative score is passed in to [`format_score`].
-#[derive(Debug, Copy, Clone, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Copy, Clone, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct NegativeScoreError {
     score: i32,
 }
