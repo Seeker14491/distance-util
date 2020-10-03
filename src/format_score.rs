@@ -81,7 +81,7 @@ impl Display for NegativeScoreError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
         write!(
             f,
-            "The score '{}' is invalid because it's negative",
+            "The score \"{}\" is invalid because it's negative",
             self.score
         )
     }
