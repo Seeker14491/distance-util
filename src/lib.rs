@@ -21,7 +21,10 @@ pub use special_steam_ids::*;
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 
-use std::fmt::{self, Display};
+use std::{
+    error::Error,
+    fmt::{self, Display},
+};
 
 /// All Distance game modes that include leaderboards.
 ///
@@ -116,22 +119,51 @@ pub fn official_level_leaderboard_names(
 /// filename without the `.bytes` extension (which can be different from the level's title).
 /// `author_steam_id` must be given for workshop levels, and `None` for official levels.
 ///
-/// Levels with very long filenames (more than 128 bytes) do not have a valid leaderboard name
-/// string, and so this function returns `None` in that case.
+/// # Errors
+///
+/// The Steamworks API imposes a limit on the length of leaderboard names, so this function errors
+/// if a sufficiently long level name is given.
 pub fn create_leaderboard_name_string(
     level: &str,
     game_mode: LeaderboardGameMode,
     author_steam_id: Option<u64>,
-) -> Option<String> {
-    let s = if let Some(id) = author_steam_id {
+) -> Result<String, LevelNameTooLongError> {
+    let leaderboard_name = if let Some(id) = author_steam_id {
         format!("{}_{}_{}_stable", level, game_mode as u8, id)
     } else {
         format!("{}_{}_stable", level, game_mode as u8)
     };
 
-    if s.len() <= 128 {
-        Some(s)
+    if leaderboard_name.len() <= 128 {
+        Ok(leaderboard_name)
     } else {
-        None
+        Err(LevelNameTooLongError { leaderboard_name })
+    }
+}
+
+/// The error returned by [`create_leaderboard_name_string`] when the resulting leaderboard name
+/// is too long.
+#[derive(Debug, Clone, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct LevelNameTooLongError {
+    leaderboard_name: String,
+}
+
+impl Display for LevelNameTooLongError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "The generated leaderboard name \"{}\" is invalid because it's too long. The maximum valid length is 128 bytes, but it has a length of {} bytes.",
+            &self.leaderboard_name,
+            self.leaderboard_name.len(),
+        )
+    }
+}
+
+impl Error for LevelNameTooLongError {}
+
+impl LevelNameTooLongError {
+    /// Consumes this error, returning the invalid leaderboard name.
+    pub fn into_leaderboard_name(self) -> String {
+        self.leaderboard_name
     }
 }
