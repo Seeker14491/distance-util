@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["distance_util"] = [{"text":"impl Send for NegativeScoreError","synthetic":true,"types":[]},{"text":"impl Send for LevelNameTooLongError","synthetic":true,"types":[]},{"text":"impl Send for LeaderboardGameMode","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

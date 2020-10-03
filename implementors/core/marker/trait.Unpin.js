@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["distance_util"] = [{"text":"impl Unpin for NegativeScoreError","synthetic":true,"types":[]},{"text":"impl Unpin for LevelNameTooLongError","synthetic":true,"types":[]},{"text":"impl Unpin for LeaderboardGameMode","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

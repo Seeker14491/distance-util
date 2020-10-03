@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["distance_util"] = [{"text":"impl PartialOrd&lt;NegativeScoreError&gt; for NegativeScoreError","synthetic":false,"types":[]},{"text":"impl PartialOrd&lt;LeaderboardGameMode&gt; for LeaderboardGameMode","synthetic":false,"types":[]},{"text":"impl PartialOrd&lt;LevelNameTooLongError&gt; for LevelNameTooLongError","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["distance_util"] = [{"text":"impl Hash for NegativeScoreError","synthetic":false,"types":[]},{"text":"impl Hash for LeaderboardGameMode","synthetic":false,"types":[]},{"text":"impl Hash for LevelNameTooLongError","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

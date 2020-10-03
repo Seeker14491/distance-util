@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/special_steam_ids.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>special_steam_ids.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../distance_util/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1"> 1</span>
+<span id="2"> 2</span>
+<span id="3"> 3</span>
+<span id="4"> 4</span>
+<span id="5"> 5</span>
+<span id="6"> 6</span>
+<span id="7"> 7</span>
+<span id="8"> 8</span>
+<span id="9"> 9</span>
+<span id="10">10</span>
+<span id="11">11</span>
+<span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+</pre><div class="example-wrap"><pre class="rust ">
+<span class="doccomment">/// Steam IDs of Founding Modders.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Founding Modders are people who backed [Distance on Kickstarter] at the $500 tier or higher.</span>
+<span class="doccomment">/// The IDs were extracted from game code. Note these are not all the Founding Modders; the</span>
+<span class="doccomment">/// Kickstarter page shows 17 people backing at the $500 tier and higher, while this list is much</span>
+<span class="doccomment">/// shorter.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// [Distance on Kickstarter]: https://www.kickstarter.com/projects/refract/distance-a-next-generation-arcade-racer</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FOUNDING_MODDER_STEAM_IDS</span>: <span class="kw-2">&amp;</span>[<span class="ident">u64</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[
+    <span class="number">76561198013400757</span>,
+    <span class="number">76561198052975697</span>,
+    <span class="number">76561197972499098</span>,
+    <span class="number">76561197961147900</span>,
+    <span class="number">76561197999799296</span>,
+    <span class="number">76561198013194041</span>,
+    <span class="number">76561197961981434</span>,
+];
+
+<span class="doccomment">/// Steam IDs of Distance&#39;s developers.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// The IDs were extracted from game code.</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DEVELOPER_STEAM_IDS</span>: <span class="kw-2">&amp;</span>[<span class="ident">u64</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[
+    <span class="number">76561197994102448</span>,
+    <span class="number">76561198025607548</span>,
+    <span class="number">76561198112217007</span>,
+    <span class="number">76561198027821962</span>,
+    <span class="number">76561197993308241</span>,
+    <span class="number">76561197961146769</span>,
+    <span class="number">76561197961147900</span>,
+    <span class="number">76561198002526059</span>,
+    <span class="number">76561198043442345</span>,
+    <span class="number">76561197965077372</span>,
+];
+</pre></div>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "distance_util";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
