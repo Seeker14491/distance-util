@@ -4,6 +4,9 @@ version = "0.1.0"
 authors = ["Brian Bowman <seeker14491@gmail.com>"]
 edition = "2018"
 
+[dev-dependencies]
+version-sync = "0.9"
+
 [dependencies]
 serde = { version = "1", optional = true, features = ["derive"] }
 thousands = "0.2"
