@@ -2,7 +2,7 @@
 
 Utility functionality useful when writing Rust tools for [Distance](http://survivethedistance.com/).
 
-### [Docs](https://seeker14491.github.io/distance-util/distance_util)
+### [Docs](https://seeker14491.github.io/distance-util/distance_util) (for latest tagged release)
 
 ## License
 
