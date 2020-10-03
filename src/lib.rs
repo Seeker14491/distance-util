@@ -1,4 +1,4 @@
-//! Misc. utility functions relating to the game [Distance](http://survivethedistance.com/).
+//! Utility functionality useful when writing Rust tools for [Distance](http://survivethedistance.com/).
 //!
 //! The current functionality includes listing official levels, creating a level's leaderboard name
 //! string, and formatting a raw time or score obtained from the Steamworks API.
@@ -68,7 +68,7 @@ impl Display for LeaderboardGameMode {
     }
 }
 
-/// Returns a slice containing the level name of each official level of game mode `mode`.
+/// Returns the level names of all official levels for the given game mode.
 ///
 /// # Example
 ///
@@ -86,9 +86,10 @@ pub fn official_level_names(mode: LeaderboardGameMode) -> &'static [&'static str
     }
 }
 
-/// Returns an iterator that yields the leaderboard name of all official levels of game mode `mode`.
+/// Returns an iterator that yields the leaderboard name of all official levels for the given game
+/// mode.
 ///
-/// The returned name is for use in the Steamworks API to fetch the level's leaderboard.
+/// The returned name is used in the Steamworks API as a key to fetch a level's leaderboard.
 ///
 /// # Example
 ///

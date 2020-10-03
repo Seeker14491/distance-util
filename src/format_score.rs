@@ -23,7 +23,14 @@ impl Display for NegativeScoreError {
 
 impl Error for NegativeScoreError {}
 
-/// Returns a string representation of a raw score obtained from the Steamworks API.
+/// Returns a string representation of a raw "score".
+///
+/// The Steamworks API returns a raw "score" as an `i32` (milliseconds for Sprint and Challenge
+/// modes, and points for Stunt). This function can convert that into a `String` that matches how
+/// the time or score would look like in-game.
+///
+/// Times above 24 hours are correctly handled, compared to in-game, where the hour count wraps back
+/// around to zero.
 ///
 /// Returns an error if `score` is negative.
 ///

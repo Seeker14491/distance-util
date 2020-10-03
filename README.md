@@ -1,6 +1,6 @@
 # distance-util
 
-Misc. utility functions relating to the game [Distance](http://survivethedistance.com/).
+Utility functionality useful when writing Rust tools for [Distance](http://survivethedistance.com/).
 
 ### [Docs](https://seeker14491.github.io/distance-util/distance_util)
 
