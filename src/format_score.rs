@@ -5,24 +5,6 @@ use std::{
 };
 use thousands::Separable;
 
-/// The error returned when a negative score is passed in to [`format_score`].
-#[derive(Debug, Copy, Clone, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct NegativeScoreError {
-    score: i32,
-}
-
-impl Display for NegativeScoreError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
-        write!(
-            f,
-            "The score '{}' is invalid because it's negative",
-            self.score
-        )
-    }
-}
-
-impl Error for NegativeScoreError {}
-
 /// Returns a string representation of a raw "score".
 ///
 /// The Steamworks API returns a raw "score" as an `i32` (milliseconds for Sprint and Challenge
@@ -88,3 +70,21 @@ fn format_score_as_time(score: i32) -> String {
 fn div_rem(x: i32, other: i32) -> (i32, i32) {
     (x / other, x % other)
 }
+
+/// The error returned when a negative score is passed in to [`format_score`].
+#[derive(Debug, Copy, Clone, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct NegativeScoreError {
+    score: i32,
+}
+
+impl Display for NegativeScoreError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
+        write!(
+            f,
+            "The score '{}' is invalid because it's negative",
+            self.score
+        )
+    }
+}
+
+impl Error for NegativeScoreError {}

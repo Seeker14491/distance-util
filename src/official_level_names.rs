@@ -1,4 +1,4 @@
-pub const SPRINT: &[&str] = &[
+pub(crate) const SPRINT: &[&str] = &[
     "Broken Symmetry",
     "Lost Society",
     "Negative Space",
@@ -121,7 +121,7 @@ pub const SPRINT: &[&str] = &[
     "Zenith",
 ];
 
-pub const STUNT: &[&str] = &[
+pub(crate) const STUNT: &[&str] = &[
     "Neon Park",
     "Quantum Core",
     "Space Skate",
@@ -134,7 +134,7 @@ pub const STUNT: &[&str] = &[
     "Fleeting Images",
 ];
 
-pub const CHALLENGE: &[&str] = &[
+pub(crate) const CHALLENGE: &[&str] = &[
     "Dodge",
     "Thunder Struck",
     "Grinder",
