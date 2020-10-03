@@ -13,8 +13,10 @@
 
 mod format_score;
 mod official_level_names;
+mod special_steam_ids;
 
 pub use format_score::*;
+pub use special_steam_ids::*;
 
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
