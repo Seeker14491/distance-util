@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DEVELOPER_STEAM_IDS","FOUNDING_MODDER_STEAM_IDS"],"enum":["LeaderboardGameMode"],"fn":["create_leaderboard_name_string","format_score","format_score_legacy","official_level_leaderboard_names","official_level_names"],"struct":["LevelNameTooLongError","NegativeScoreError"]};
