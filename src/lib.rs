@@ -109,7 +109,7 @@ pub fn official_level_leaderboard_names(
 ) -> impl Iterator<Item = String> + Send {
     official_level_names(mode)
         .iter()
-        .map(move |name| create_leaderboard_name_string(*name, mode, None).unwrap())
+        .map(move |name| create_leaderboard_name_string(name, mode, None).unwrap())
 }
 
 /// Creates a level's leaderboard name string, which is needed to get a level's leaderboard

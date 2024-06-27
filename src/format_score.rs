@@ -65,6 +65,58 @@ fn format_score_as_time(score: i32) -> String {
     }
 }
 
+/// Returns a string representation of a raw "score".
+///
+/// This function works like [`format_score()`], but for Sprint and Challenge times, always
+/// includes the leading hours part, even for times under an hour.
+///
+/// # Examples
+///
+/// ```
+/// use distance_util::LeaderboardGameMode;
+///
+/// let sprint_time = distance_util::format_score_legacy(83450, LeaderboardGameMode::Sprint).unwrap();
+/// assert_eq!(sprint_time, "00:01:23.45");
+///
+/// let sprint_time = distance_util::format_score_legacy(17767890, LeaderboardGameMode::Sprint).unwrap();
+/// assert_eq!(sprint_time, "04:56:07.89");
+///
+/// let stunt_time = distance_util::format_score_legacy(123_456, LeaderboardGameMode::Stunt).unwrap();
+/// assert_eq!(stunt_time, "123,456 eV");
+/// ```
+pub fn format_score_legacy(
+    score: i32,
+    game_mode: LeaderboardGameMode,
+) -> Result<String, NegativeScoreError> {
+    if score < 0 {
+        return Err(NegativeScoreError { score });
+    }
+
+    let formatted = match game_mode {
+        LeaderboardGameMode::Sprint | LeaderboardGameMode::Challenge => {
+            format_score_as_time_legacy(score)
+        }
+        LeaderboardGameMode::Stunt => format!("{} eV", score.separate_with_commas()),
+    };
+
+    Ok(formatted)
+}
+
+fn format_score_as_time_legacy(score: i32) -> String {
+    assert!(score >= 0);
+
+    // `score` is in milliseconds
+    let (hours, rem) = div_rem(score, 1000 * 60 * 60);
+    let (minutes, rem) = div_rem(rem, 1000 * 60);
+    let (seconds, rem) = div_rem(rem, 1000);
+    let centiseconds = rem / 10;
+
+    format!(
+        "{:02}:{:02}:{:02}.{:02}",
+        hours, minutes, seconds, centiseconds
+    )
+}
+
 // Simultaneous truncated integer division and modulus.
 #[inline]
 fn div_rem(x: i32, other: i32) -> (i32, i32) {
