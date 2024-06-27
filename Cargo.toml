@@ -2,7 +2,7 @@
 name = "distance-util"
 version = "0.2.0"
 authors = ["Brian Bowman <seeker14491@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dev-dependencies]
 version-sync = "0.9"
